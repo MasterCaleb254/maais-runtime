@@ -106,7 +106,7 @@ MAAIS-Runtime provides:
 
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/maais-runtime.git
+git clone https://github.com/MasterCaleb254/maais-runtime.git
 cd maais-runtime
 
 # Create virtual environment
@@ -462,7 +462,7 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md).
 ### Development Setup
 ```bash
 # Clone and setup
-git clone https://github.com/yourusername/maais-runtime.git
+git clone https://github.com/MasterCaleb254/maais-runtime.git
 cd maais-runtime
 python -m venv venv
 source venv/bin/activate
