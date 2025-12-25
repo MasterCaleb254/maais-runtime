@@ -1,194 +1,91 @@
-# 🛡️ MAAIS-Runtime: Agentic AI Security Runtime
+# 🛡️ MAAIS-Runtime
 
 > **Enterprise-grade security enforcement for autonomous AI agents**  
 > *Real-time, inline security for LangGraph, CrewAI, AutoGen, and other agentic AI systems*
 
+[![GitHub Pages](https://img.shields.io/badge/🌐-Live%20Website-blue)](https://mastercaleb254.github.io/maais-runtime/)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Spec Compliant](https://img.shields.io/badge/SPEC--1-Fully%20Implemented-green.svg)](SPEC-1.md)
-[![Security: Production](https://img.shields.io/badge/Security-Production%20Ready-red.svg)](SECURITY.md)
 
-## 🚀 What is MAAIS-Runtime?
+## 🌐 Live Website
 
-MAAIS-Runtime is a **real-time security enforcement layer** that intercepts and evaluates every action autonomous AI agents attempt to perform, blocking dangerous operations before they execute. Think of it as a **security bouncer for AI agents** that enforces policies, prevents data exfiltration, and maintains immutable audit trails.
+Visit our interactive documentation and demos:  
+**👉 https://mastercaleb254.github.io/maais-runtime/**
 
-### 🎯 Why This Matters
+### What's on the Website?
+- 🎯 **Interactive Demos** - Try MAAIS-Runtime in your browser
+- 📚 **Complete Documentation** - Guides, API reference, tutorials
+- 🚨 **Attack Scenarios** - See real security threats blocked
+- 📊 **Live Dashboard** - Monitoring and analytics examples
+- 🏢 **Enterprise Guide** - Multi-tenant, production deployment
 
-Modern agentic AI systems (LangGraph, CrewAI, AutoGen) can autonomously:
-- Call APIs and invoke tools
-- Read/write memory and files
-- Execute system commands
-- Coordinate with other agents
+## 🚀 Quick Start
 
-While powerful, they lack **runtime security enforcement**. Most security approaches focus on:
-- ❌ Prompt hardening (easily bypassed)
-- ❌ Static policy descriptions (not enforced)
-- ❌ Post-hoc monitoring (too late)
+```bash
+# Install
+pip install maais-runtime
 
-MAAIS-Runtime provides:
-- ✅ **Active, inline enforcement** before execution
-- ✅ **Real-time CIAA constraints** (Confidentiality, Integrity, Availability, Accountability)
-- ✅ **Immutable, hash-chained audit logs**
-- ✅ **MITRE ATLAS mapping** for enterprise security teams
-
-## ✨ Key Features
-
-### 🛡️ **Core Security**
-- **In-process runtime** - No bypass via IPC or network calls
-- **Fail-closed design** - No execution without security clearance
-- **Deterministic evaluation** - Same action → same decision every time
-- **Zero unauthorized paths** - All execution flows intercepted
-
-### 🎯 **Advanced Capabilities**
-- **Machine Learning Anomaly Detection** - Behavioral profiling for agents
-- **Multi-Tenant Support** - Isolated configurations per organization
-- **GitOps Integration** - Automatic policy sync from Git repositories
-- **Real-time Webhook Alerts** - Slack, Discord, Teams, and custom integrations
-- **Policy Learning Engine** - Suggests new policies from blocked actions
-- **Performance Optimizations** - LRU caching, async batching, <5ms latency
-
-### 📊 **Enterprise Ready**
-- **MITRE ATLAS Mapping** - Industry-standard security framework
-- **Immutable Audit Logs** - Hash-chained, tamper-evident logging
-- **Streamlit Dashboard** - Real-time monitoring and analytics
-- **Production Deployment** - Comprehensive logging, metrics, health checks
-
-## 🏗️ Architecture
-
-```
-┌─────────────────────────────────────────────────────────┐
-│                    Agent Plane (Untrusted)              │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐    │
-│  │ LangGraph   │  │  CrewAI     │  │  AutoGen    │    │
-│  │   Agent     │  │   Agent     │  │   Agent     │    │
-│  └──────┬──────┘  └──────┬──────┘  └──────┬──────┘    │
-└─────────┼─────────────────┼─────────────────┼──────────┘
-          │                 │                 │
-          └─────────────────┼─────────────────┘
-                            │
-                 ┌──────────▼──────────┐
-                 │ Interception Plane  │
-                 │  (Trusted Boundary) │
-                 │  • ActionRequest    │
-                 │  • Schema Validation│
-                 └──────────┬──────────┘
-                            │
-          ┌─────────────────┼─────────────────┐
-          │                 │                 │
-┌─────────▼─────────┐ ┌─────▼──────┐ ┌───────▼─────────┐
-│  Policy Engine    │ │ CIAA       │ │ Accountability  │
-│  • YAML Policies  │ │ Evaluator  │ │  Resolver       │
-│  • MITRE ATLAS    │ │ • Confid.  │ │ • Ownership     │
-│  • First-match    │ │ • Integrity│ │ • Hard Require. │
-└─────────┬─────────┘ │ • Availab. │ └───────┬─────────┘
-          │           │ • Account. │         │
-          └───────────┼────────────┼─────────┘
-                      │            │
-               ┌──────▼────────────▼──────┐
-               │  Runtime Orchestrator    │
-               │  • ALLOW/DENY Decision   │
-               │  • Audit Logging         │
-               │  • Webhook Alerts        │
-               └────────────┬─────────────┘
-                            │
-                 ┌──────────▼──────────┐
-                 │   Audit Plane       │
-                 │  (Immutable)        │
-                 │  • Hash-chained     │
-                 │  • Append-only      │
-                 │  • Tamper-evident   │
-                 └─────────────────────┘
+# Visit website for full guide
+# https://mastercaleb254.github.io/maais-runtime/quickstart
 ```
 
-## 📦 Quick Start
+## 📖 Documentation
 
-### Installation
+| Section | Website Link | Description |
+|---------|--------------|-------------|
+| **Getting Started** | [🌐 View](https://mastercaleb254.github.io/maais-runtime/getting-started) | Core concepts and first steps |
+| **Installation** | [🌐 View](https://mastercaleb254.github.io/maais-runtime/installation) | Installation guides for all platforms |
+| **Live Demo** | [🌐 View](https://mastercaleb254.github.io/maais-runtime/demo) | Interactive security demonstrations |
+| **API Reference** | [🌐 View](https://mastercaleb254.github.io/maais-runtime/api-reference) | Complete API documentation |
+| **Security Guide** | [🌐 View](https://mastercaleb254.github.io/maais-runtime/security) | Security features and MITRE ATLAS |
+
+## 🎯 Features
+
+- 🔒 **Real-time Action Interception** - No bypass possible
+- ⚡ **<5ms Latency** - Minimal performance impact
+- 📊 **Immutable Audit Logs** - Hash-chained, tamper-evident
+- 🎯 **MITRE ATLAS Mapping** - Industry-standard security framework
+- 🤖 **Framework Agnostic** - LangGraph, CrewAI, AutoGen compatible
+
+## 🔧 Local Development
 
 ```bash
 # Clone repository
 git clone https://github.com/MasterCaleb254/maais-runtime.git
 cd maais-runtime
 
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
 # Install dependencies
-pip install -r requirements-enhanced.txt
+pip install -r requirements.txt
 
-# Run test to verify installation
-python test_runtime.py
+# Run tests
+pytest tests/
+
+# View website locally
+cd docs
+bundle exec jekyll serve
 ```
 
-### Basic Usage
+## 🤝 Contributing
 
-```python
-from core.runtime import get_runtime
-from core.models import ActionRequest, ActionType
+We welcome contributions! Please see our [Contributing Guide](https://mastercaleb254.github.io/maais-runtime/contributing).
 
-# Initialize runtime
-runtime = get_runtime()
+## 📞 Support
 
-# Create action request
-action = ActionRequest(
-    agent_id="data_processor",
-    action_type=ActionType.TOOL_CALL,
-    target="http_request",
-    parameters={"url": "https://api.example.com/data"},
-    declared_goal="Fetch external data"
-)
+- **Website**: [https://mastercaleb254.github.io/maais-runtime](https://mastercaleb254.github.io/maais-runtime)
+- **Issues**: [GitHub Issues](https://github.com/MasterCaleb254/maais-runtime/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/MasterCaleb254/maais-runtime/discussions)
 
-# Intercept and evaluate
-decision = runtime.intercept(action)
+---
 
-if decision.allow:
-    print("✅ Action allowed!")
-else:
-    print(f"❌ Action blocked: {decision.explanation}")
-```
+<div align="center">
+  <h3>Visit Our Website for Complete Documentation</h3>
+  <p>
+    <a href="https://mastercaleb254.github.io/maais-runtime">
+      <img src="https://img.shields.io/badge/🌐-Visit%20Website-blue?style=for-the-badge" alt="Visit Website">
+    </a>
+  </p>
+</div>
 
-### LangGraph Integration
-
-```python
-from core.adapters.langgraph_adapter import secure_tool
-
-@secure_tool(agent_id="data_agent", goal="Process user data")
-def process_data(data: dict):
-    """Your tool logic here"""
-    return transform(data)
-
-# Use in LangGraph
-from langgraph.prebuilt import create_react_agent
-agent = create_react_agent(tools=[process_data])
-```
-
-## 🔧 Configuration
-
-### Security Policies (YAML)
-
-```yaml
-# policies/static/security_policies.yaml
-policies:
-  - id: "deny_external_http"
-    applies_to: ["tool_call"]
-    condition:
-      target: "http_request"
-      parameters:
-        url:
-          pattern: "^(https?://)(?!localhost|127.0.0.1|internal\.).*"
-    decision: "DENY"
-    reason: "External HTTP requests forbidden"
-    priority: 10
-    metadata:
-      mitre_tactic: "Initial Access"
-      mitre_technique: "T1199"
-      severity: "high"
-```
-
-### MITRE ATLAS Integration
-
-```yaml
-- id: "atlas_exfiltration_data"
   applies_to: ["tool_call", "api_call", "network_request"]
   condition:
     parameters:
