@@ -1,3 +1,21 @@
+---
+layout: default
+title: Quickstart
+nav_order: 4
+---
+
+# 5-Minute Quickstart
+
+Get MAAIS-Runtime running quickly.
+
+```bash
+git clone https://github.com/MasterCaleb254/maais-runtime.git
+cd maais-runtime
+pip install -r requirements.txt
+python -m demo.scenarios.attack_scenarios
+```
+
+Open `docs/demo.md` for interactive examples.
 # MAAIS-Runtime Quick Start
 
 ## Installation
