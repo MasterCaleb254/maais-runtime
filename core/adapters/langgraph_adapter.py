@@ -8,9 +8,48 @@ from typing import Callable, Any, Optional, Union, Dict, List
 from datetime import datetime
 import uuid
 
-from langgraph.graph import StateGraph
-from langgraph.prebuilt import ToolExecutor, ToolInvocation
-from langchain_core.tools import BaseTool
+HAS_LANGGRAPH = True
+try:
+    from langgraph.graph import StateGraph
+    from langgraph.prebuilt import ToolExecutor, ToolInvocation
+    from langchain_core.tools import BaseTool
+except Exception:
+    # Provide light-weight stubs so demos can run without optional dependencies
+    HAS_LANGGRAPH = False
+
+    class StateGraph:
+        def __init__(self, *args, **kwargs):
+            self._nodes = {}
+
+        def add_node(self, name, func):
+            self._nodes[name] = func
+
+    class ToolInvocation:
+        def __init__(self, tool=None, tool_input=None, agent_id=None, declared_goal=None):
+            self.tool = tool
+            self.tool_input = tool_input
+            self.agent_id = agent_id
+            self.declared_goal = declared_goal
+
+    class ToolExecutor:
+        def __init__(self, tools=None):
+            self._tools = tools or []
+
+        def invoke(self, tool_invocation: ToolInvocation):
+            # Find matching tool by name
+            for t in self._tools:
+                if getattr(t, 'name', None) == tool_invocation.tool:
+                    # Call _run if present
+                    if hasattr(t, '_run'):
+                        return t._run(tool_invocation.tool_input)
+                    return None
+            raise RuntimeError(f"Tool not found: {tool_invocation.tool}")
+
+    class BaseTool:
+        def __init__(self, name: str, description: str = ""):
+            self.name = name
+            self.description = description
+
 
 from core.models import ActionRequest, ActionType
 from core.runtime import get_runtime
