@@ -38,6 +38,15 @@ class Runtime:
         """Set a global webhook manager."""
         self._mt_runtime.set_webhook_manager(webhook_manager)
 
+    @property
+    def audit_logger(self):
+        """Expose default tenant audit logger for demos and scripts."""
+        try:
+            comps = self._mt_runtime.tenant_manager.get_tenant_components('default')
+            return comps.get('audit_logger')
+        except Exception:
+            return None
+
     def health_check(self) -> Dict[str, Any]:
         """Return a health summary for the runtime."""
         return self._mt_runtime.health_check()
