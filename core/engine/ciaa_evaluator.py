@@ -1,7 +1,7 @@
 """
 CIAA (Confidentiality, Integrity, Availability, Accountability) Evaluator
 """
-from typing import Dict, Any
+from typing import Dict, Any, Optional
 from datetime import datetime, timedelta
 from collections import defaultdict
 
