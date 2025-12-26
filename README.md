@@ -277,6 +277,12 @@ python -m benchmarks.performance --agents=10 --actions=1000
 • Cache hit rate: 98.7%
 ```
 
+Note: the metrics shown above are example results. To reproduce locally, run the included benchmark:
+
+```bash
+python benchmarks/performance.py
+```
+
 ## 🚀 Production Deployment
 
 ### Docker Deployment
