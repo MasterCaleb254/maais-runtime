@@ -215,10 +215,13 @@ class TenantManager:
                 print(f"Policy file not found for tenant {tenant.tenant_id}: {policy_file}")
         
         if not policy_contents:
-            # Use default policies
+            # Use default policies if available, otherwise proceed with empty policy set.
             default_file = "policies/static/security_policies.yaml"
-            with open(default_file, 'r') as f:
-                policy_contents.append(f.read())
+            try:
+                with open(default_file, 'r') as f:
+                    policy_contents.append(f.read())
+            except FileNotFoundError:
+                print(f"Warning: default policy file missing: {default_file} — tenant will have no policies")
         
         # Create merged policy file
         tenant_policy_dir = self.base_dir / "policies" / tenant.tenant_id
